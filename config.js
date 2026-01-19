@@ -23,7 +23,7 @@ const SITE_CONFIG = {
 // API站点配置
 const API_SITES = {
       iqiyizyapi: {
-        name: '🎬-1爱奇艺-',
+        name: '🎬-爱奇艺-',
         api: 'https://iqiyizyapi.com/api.php/provide/vod',
         detail: 'https://iqiyizyapi.com',
     },
