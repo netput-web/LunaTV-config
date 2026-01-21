@@ -15,30 +15,18 @@ jobs:
     if: ${{ success() }}  # 不再依赖 fork 仓库
 
     steps:
-      # Step 1: run a standard checkout action
+      # Step 1: Checkout the target repository (your forked repository)
       - name: Checkout target repo
         uses: actions/checkout@v4
 
-      # Step 2: run the sync action
-      - name: Sync upstream changes
-        id: sync
-        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
-        with:
-          upstream_sync_repo: hafrey1/LunaTV-config
-          upstream_sync_branch: main
-          target_sync_branch: main
-          target_repo_token: ${{ secrets.GITHUB_TOKEN }} # 自动生成，无需设置
-          test_mode: false
-
-      # Step 3: check for failure and provide error message
-      - name: Sync check
-        if: failure()
+      # Step 2: Notify to manually sync (since no longer syncing with upstream repo)
+      - name: Notify to manually sync
         run: |
-          echo "[Error] 由于上游仓库的 workflow 文件变更，导致 GitHub 自动暂停了本次自动更新，你需要手动 Sync Fork 一次，详细教程请查看项目README.md"
-          echo "[Error] Due to a change in the workflow file of the upstream repository, GitHub has automatically suspended the scheduled automatic update. You need to manually sync your fork. Please refer to the project README.md for instructions."
-          exit 1
-          
-      # Step 4: Delete workflow runs (only keep the most recent 5)
+          echo "Since upstream repository is disconnected, you need to manually sync your fork."
+          echo "Please use GitHub's 'Sync fork' button or run 'git fetch upstream' manually."
+          exit 0
+
+      # Step 3: Delete workflow runs (keep only the most recent 5 workflow runs)
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@main
         with:
