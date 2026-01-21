@@ -292,7 +292,7 @@ const JSON_SOURCES = {
 找到以下代码并修改超时毫秒数：
 
 ```jsx
-const timeoutId = setTimeout(() => controller.abort(), 9000) // 改为其他值
+const timeoutId = setTimeout(() => controller.abort(), 6000) // 改为其他值
 ```
 
 ### 添加访问日志
@@ -531,6 +531,7 @@ console.log(`Request from: ${request.headers.get('cf-connecting-ip')}`)
 
 
 ---
+
 
 
 
