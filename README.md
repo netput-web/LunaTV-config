@@ -1,33 +1,33 @@
-# MoonTV/LunaTV 配置编辑器
-https://hafrey1.github.io/LunaTV-config  
+# LunaTV 配置编辑器
+https://netput-web.github.io/LunaTV-config/ 
 
 --- 
 
-##  MoonTV/LunaTV配置
+## LunaTV配置
 订阅使用：复制下面链接  
 
-👉 Base58编码订阅链接[精简版🎬源链接](https://raw.githubusercontent.com/hafrey1/LunaTV-config/refs/heads/main/jin18.txt)    （推荐使用自己部署的代理）精简版禁18源
+👉 Base58编码订阅链接[精简版🎬源链接](https://raw.githubusercontent.com/netput-web/LunaTV-config/refs/heads/main/jin18.txt)    （推荐使用自己部署的代理）精简版禁18源
 
 ```bash
-https://pz.v88.qzz.io?format=2&source=jin18
+https://api-escargot.kk218.com?format=2&source=jin18
 ```
 ```bash
-https://raw.githubusercontent.com/hafrey1/LunaTV-config/refs/heads/main/jin18.txt
+https://raw.githubusercontent.com/netput-web/LunaTV-config/refs/heads/main/jin18.txt
 ```
-👉 Base58编码订阅链接[精简版🎬+🔞源链接](https://raw.githubusercontent.com/hafrey1/LunaTV-config/refs/heads/main/jingjian.txt) （推荐使用自己部署的代理）精简版剔除无搜索结果和污染搜索结果源                             
+👉 Base58编码订阅链接[精简版🎬+🔞源链接](https://raw.githubusercontent.com/netput-web/LunaTV-config/refs/heads/main/jingjian.txt) （推荐使用自己部署的代理）精简版剔除无搜索结果和污染搜索结果源                             
 ```bash
-https://pz.v88.qzz.io?format=2&source=jingjian
+https://api-escargot.kk218.com?format=2&source=jingjian
 ```
 ```bash
-https://raw.githubusercontent.com/hafrey1/LunaTV-config/refs/heads/main/jingjian.txt
+https://raw.githubusercontent.com/netput-web/LunaTV-config/refs/heads/main/jingjian.txt
 ```
 
-👉 Base58编码订阅链接[完整版🎬+🔞源链接](https://raw.githubusercontent.com/hafrey1/LunaTV-config/refs/heads/main/LunaTV-config.txt) （推荐使用自己部署的代理）                          
+👉 Base58编码订阅链接[完整版🎬+🔞源链接](https://raw.githubusercontent.com/netput-web/LunaTV-config/refs/heads/main/LunaTV-config.txt) （推荐使用自己部署的代理）                          
 ```bash
-https://pz.v88.qzz.io?format=2&source=full
+https://api-escargot.kk218.com?format=2&source=full
 ```
 ```bash
-https://raw.githubusercontent.com/hafrey1/LunaTV-config/refs/heads/main/LunaTV-config.txt
+https://raw.githubusercontent.com/netput-web/LunaTV-config/refs/heads/main/LunaTV-config.txt
 ```
 
 --- 
@@ -263,7 +263,7 @@ https://<你的域名>/?format=3&source=full
 - **代理替换逻辑**：如果 JSON 中 `api` 字段已包含 `?url=` 前缀，会先去掉旧前缀，再加上新前缀。
 - **Base58 输出**：适合直接作为订阅链接在支持该格式的客户端中使用。
 - **配置源更新**：配置源来自 GitHub，内容会定期更新。Worker 会缓存 7200 秒（2小时）。
-- **超时设置**：默认请求超时时间为 9 秒，超时后会返回错误信息。
+- **超时设置**：默认请求超时时间为 6 秒，超时后会返回错误信息。
 - **CORS 支持**：已启用完整的 CORS 支持，可直接在前端应用中调用。
 
 ---   
@@ -450,9 +450,9 @@ console.log(`Request from: ${request.headers.get('cf-connecting-ip')}`)
 
 ---
 
-## 二、仓库用途说明（MoonTV / LunaTV 源配置）
+## 二、仓库用途说明（LunaTV 源配置）
 
-1. 本仓库主要提供 **MoonTV / LunaTV 等相关项目的源配置、订阅定义或配置示例**，内容均整理自互联网公开信息。
+1. 本仓库主要提供 **LunaTV 等相关项目的源配置、订阅定义或配置示例**，内容均整理自互联网公开信息。
 2. 本仓库内容 **仅用于学习、测试与技术研究目的**，包括但不限于配置格式研究、源聚合方式分析及客户端兼容性测试。
 3. **本仓库不存储、不托管、不分发任何音视频文件、媒体流或受版权保护的内容**，亦不提供任何形式的媒体服务。
 4. 除非另有明确书面声明，本仓库 **不授予任何商业使用许可**。
@@ -533,9 +533,6 @@ console.log(`Request from: ${request.headers.get('cf-connecting-ip')}`)
 ---
 
 
-
-## ⭐ Star History
-[![Star History](https://starchart.cc/hafrey1/LunaTV-config.svg?variant=light)](https://starchart.cc/hafrey1/LunaTV-config)
 
 
 
