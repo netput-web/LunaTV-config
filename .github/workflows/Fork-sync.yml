@@ -6,13 +6,13 @@ permissions:
 on:
   schedule:
     - cron: "0 17 * * *"  # 每天北京时间凌晨1点运行 (UTC 17点)
-  workflow_dispatch:
+  workflow_dispatch:  # 允许手动触发
 
 jobs:
   sync_latest_from_upstream:
     name: Sync latest commits from upstream repo
     runs-on: ubuntu-latest
-    if: ${{ github.event.repository.fork }}
+    if: ${{ success() }}  # 不再依赖 fork 仓库
 
     steps:
       # Step 1: run a standard checkout action
@@ -27,20 +27,19 @@ jobs:
           upstream_sync_repo: hafrey1/LunaTV-config
           upstream_sync_branch: main
           target_sync_branch: main
-          target_repo_token: ${{ secrets.GITHUB_TOKEN }} # automatically generated, no need to set
-
-          # Set test_mode true to run tests instead of the true action!!
+          target_repo_token: ${{ secrets.GITHUB_TOKEN }} # 自动生成，无需设置
           test_mode: false
 
+      # Step 3: check for failure and provide error message
       - name: Sync check
         if: failure()
         run: |
-          echo "[Error] 由于上游仓库的 workflow 文件变更，导致 GitHub 自动暂停了本次自动更新，你需要手动 Sync Fork 一次，详细教程请查看项目README.md "
-          echo "[Error] Due to a change in the workflow file of the upstream repository, GitHub has automatically suspended the scheduled automatic update. You need to manually sync your fork. Please refer to the project README.md for instructions. "
+          echo "[Error] 由于上游仓库的 workflow 文件变更，导致 GitHub 自动暂停了本次自动更新，你需要手动 Sync Fork 一次，详细教程请查看项目README.md"
+          echo "[Error] Due to a change in the workflow file of the upstream repository, GitHub has automatically suspended the scheduled automatic update. You need to manually sync your fork. Please refer to the project README.md for instructions."
           exit 1
           
+      # Step 4: Delete workflow runs (only keep the most recent 5)
       - name: Delete workflow runs
-      # 删除工作流记录/只保留1天记录
         uses: Mattraks/delete-workflow-runs@main
         with:
           retain_days: 0
